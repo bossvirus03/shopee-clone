@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package merchandise;
+
+message MerchandiseEntity{
+    int32 id = 1;
+    string name = 2;
+    string type = 3;
+    string price = 4;
+    string images = 5;
+    float sale = 6;
+    ShopEntity shop = 7;
+}
+
+message ShopEntity{
+    int32 id = 1;
+    string name = 2;
+    string type = 3;
+    string avatarUrl = 4;
+    
+}
+
+message GetMerchandisesReq{
+    int32 page = 1;
+    int32 limit = 2;
+}
+
+message GetMerchandisesRes{
+    int32 total = 1;
+    repeated MerchandiseEntity data = 2;
+}
+
+message GetMerchandiseReq{
+    int32 id = 1;
+}
+
+message GetMerchandiseRes{
+    MerchandiseEntity data =  1;
+}
+
+service MerchandiseGrpc {
+    rpc GetMerchandises (GetMerchandisesReq) returns (GetMerchandisesRes) {}
+    rpc GetGetMerchandise (GetMerchandiseReq) returns (GetMerchandiseRes) {}
+  }

@@ -1,0 +1,20 @@
+model Merchandise {
+    id     Int    @id @default(autoincrement())
+    name   String
+    type   String
+    price  Float
+    sale   Float?
+    images Json
+
+    shop Shop @relation(fields: [shopId], references: [id])
+
+    shopId Int
+}
+
+model Shop {
+    id          Int           @id @default(autoincrement())
+    name        String
+    type        String
+    avatarUrl   String
+    Merchandise Merchandise[]
+}
