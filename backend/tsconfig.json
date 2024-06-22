@@ -18,8 +18,12 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/libs": ["libs/shared/src"],
-      "@app/libs/*": ["libs/shared/src/*"]
+      "@app/libs": [
+        "libs/shared/src"
+      ],
+      "@app/libs/*": [
+        "libs/shared/src/*"
+      ]
     }
   }
 }

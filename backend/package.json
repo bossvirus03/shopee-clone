@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "prisma": {
-    "schema": "libs/shared/src/lib/prisma/**/*.prisma"
+    "schema": "libs/data-access/src/lib/prisma/"
   },
   "scripts": {
     "build": "nest build",
@@ -21,6 +21,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/backend/test/jest-e2e.json",
+    "generate:prisma": "./dev/prisma-generate.sh",
     "generate:proto": "protoc --experimental_allow_proto3_optional --ts_proto_out=./libs/shared/src/lib/pb/ ./proto/**/*.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb --ts_proto_opt=useDate=true,esModuleInterop=true,addGrpcMetadata=true,unrecognizedEnum=false,stringEnums=true,snakeToCamel=false,enumsAsLiterals=true."
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@prisma/client": "^5.15.0",
     "i": "^0.3.7",
+    "kafkajs": "^2.2.4",
     "npm": "^10.8.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
